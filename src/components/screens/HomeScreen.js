@@ -43,7 +43,9 @@ function HomeScreen() {
             ):
             
             <Row>
-            {products.filter((product)=>
+            {Array.isArray(products) &&
+      products
+        .filter((product) =>
         {
           return search.toLowerCase() === '' ? product : product.name.toLowerCase().includes(search);
         }).map((product) => (
