@@ -34,7 +34,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`http://alaic.pythonanywhere.com/api/orders/add/`, order, config);
+    const { data } = await axios.post(`https://alaic.pythonanywhere.com/api/orders/add/`, order, config);
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data,
@@ -72,7 +72,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`http://alaic.pythonanywhere.com/api/orders/${id}`, config);
+    const { data } = await axios.post(`https://alaic.pythonanywhere.com/api/orders/${id}`, config);
     dispatch({
       type: ORDER_DETAILS_SUCCESS,
       payload: data,
@@ -106,7 +106,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
         Authorization: "Bearer ${userInfo.token}",
       },
     };
-    const {data} = await axios.put("http://alaic.pythonanywhere.com/api/orders/${id}/pay/",paymentResult, config); 
+    const {data} = await axios.put("https://alaic.pythonanywhere.com/api/orders/${id}/pay/",paymentResult, config); 
   dispatch({
     type: ORDER_PAY_SUCCESS, 
     payload: data,
@@ -137,7 +137,7 @@ export const getMyOrders = () => async (dispatch, getState) => {
   Authorization: `Bearer ${userInfo.token}`,
   },
 };
-  const {data} = await axios.get(`http://alaic.pythonanywhere.com/api/orders/myorders`, config);
+  const {data} = await axios.get(`https://alaic.pythonanywhere.com/api/orders/myorders`, config);
   dispatch({
   type: ORDER_LIST_MY_SUCCESS,
   payload: data,
@@ -173,7 +173,7 @@ export const getMyOrders = () => async (dispatch, getState) => {
       };
   
       /* MAKING API CALL TO GET THE DETAILS OF THE ORDERS MADE BY THE USER */
-      const { data } = await axios.get(`http://alaic.pythonanywhere.com/api/orders/myorders/`, config);
+      const { data } = await axios.get(`https://alaic.pythonanywhere.com/api/orders/myorders/`, config);
   
       /* IF GET REQUEST SUCCESSFULL WE DISPATCH & SEND THE PAYLOAD TO OUR REDUCER */
       dispatch({
@@ -211,7 +211,7 @@ export const getMyOrders = () => async (dispatch, getState) => {
       };
   
       /* MAKING API CALL TO GET THE DETAILS OF ALL THE ORDERS MADE BY THE ALL THE USERS */
-      const { data } = await axios.get(`http://alaic.pythonanywhere.com/api/orders/`, config);
+      const { data } = await axios.get(`https://alaic.pythonanywhere.com/api/orders/`, config);
   
       /* IF GET REQUEST SUCCESSFULL WE DISPATCH & SEND THE PAYLOAD TO OUR REDUCER */
       dispatch({
@@ -250,7 +250,7 @@ export const getMyOrders = () => async (dispatch, getState) => {
   
       /* MAKING API CALL TO UPDATE ORDER DELIVERY STATUS */
       const { data } = await axios.put(
-        `http://alaic.pythonanywhere.com/api/orders/${order._id}/deliver/`,
+        `https://alaic.pythonanywhere.com/api/orders/${order._id}/deliver/`,
         {},
         config
       );
