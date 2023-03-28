@@ -27,7 +27,7 @@ export const login = (email,password)=> async(dispatch)=>{
            }
        }
 
-       const {data}= await axios.post('/api/users/login/',
+       const {data}= await axios.post('http://alaic.pythonanywhere.com/api/users/login/',
        
        {'username':email,'password':password},config
        
@@ -71,7 +71,7 @@ export const register =(name,email,password)=> async(dispatch)=>{
            }
        }
 
-       const {data}= await axios.post('/api/users/register/',
+       const {data}= await axios.post('http://alaic.pythonanywhere.com/api/users/register/',
        
        
        {'name':name,'email':email,'password':password },config )
@@ -116,7 +116,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
             }
         }
         const {data} = await axios.post(
-        `api/user`,
+        `http://alaic.pythonanywhere.com/api/user`,
         config
     );
     dispatch({
@@ -150,7 +150,7 @@ export const userUpdateProfile = (user) => async (dispatch, getState) => {
             }
         }
         const {data} = await axios.post(
-        `api/users/profile/update`,
+        `http://alaic.pythonanywhere.com/api/users/profile/update`,
         user,
         config
         )
